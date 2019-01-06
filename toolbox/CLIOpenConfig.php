@@ -28,6 +28,7 @@
                 $this->data[] = $this->getIndentText(2)."unit:";
                 foreach ($v->getUnit() as $l => $w){
                     $this->data[] = $this->getIndentText(3)."- ".$l.":";
+                    $this->data[] = $this->getIndentText(4)."description: \"".$w->getDescription()."\"";
                 }
             }
         }
@@ -42,8 +43,8 @@
             $this->data[] = "vlans:";
             foreach ($this->getOpenConfig()->getVlans() as $k => $v){
                 $this->data[] = $this->getIndentText()."- ".$k.":";
-                $this->data[] = $this->getIndentText(2)."description: ".$v->getDescription();
-                $this->data[] = $this->getIndentText(2)."l3-interface: ".$v->getL3Interface();
+                if($v->getDescription()) $this->data[] = $this->getIndentText(2)."description: ".$v->getDescription();
+                if($v->getL3Interface()) $this->data[] = $this->getIndentText(2)."l3-interface: ".$v->getL3Interface();
                 $this->data[] = $this->getIndentText(2)."vlan-id: ".$v->getVlanId();
             }
 

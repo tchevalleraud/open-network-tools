@@ -44,6 +44,18 @@
             }
         }
 
+        public function saveConfigFile($filename){
+            try {
+                $fh = fopen($filename, "w+");
+                if(!$fh) throw new \Exception();
+                foreach ($this->getConfigFile() as $v){
+                    fputs($fh, $v."\n");
+                }
+            } catch (\Exception $e){
+                throw new \Exception();
+            }
+        }
+
         public function getOpenConfig(){
             return $this->openConfig;
         }
