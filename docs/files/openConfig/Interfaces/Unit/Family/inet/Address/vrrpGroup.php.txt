@@ -1,0 +1,18 @@
+<?php
+    namespace OpenNetworkTools\OpenConfig\Interfaces\Unit\Family\Inet\Address;
+        
+    class vrrpGroup {
+    
+        private $acceptData;
+        private $virtualAddress;
+
+        public function __construct(){
+        }
+
+        public function addVirtualAddress($address){
+            $this->virtualAddress[] = $address;
+            return $this;
+        }
+
+    }
+?>

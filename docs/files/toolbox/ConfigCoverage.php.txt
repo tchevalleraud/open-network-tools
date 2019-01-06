@@ -1,0 +1,58 @@
+<?php
+    namespace OpenNetworkTools\Toolbox;
+        
+    class ConfigCoverage {
+
+        private $cover      = array();
+        private $configFile = array();
+        private $size;
+    
+        public function __construct($size = 0){
+            $this->setSize($size);
+            return $this;
+        }
+
+        public function addCover(int $line, bool $status = true){
+            $this->cover[$line] = $status;
+        }
+
+        public function getCover(){
+            $cover = array();
+            foreach ($this->cover as $k => $v) ($v == true) ? $cover[$k] = true : null;
+            return $cover;
+        }
+
+        public function getCoverInPourcentage(){
+            return round((int)sizeof($this->getCover())*100/(int)$this->size,2);
+        }
+
+        public function setConfigFile($config){
+            $this->configFile = $config;
+        }
+
+        public function getSize(){
+            return $this->size;
+        }
+
+        public function setSize(int $size){
+            $this->size = $size;
+            for($i=0;$i<$this->size;$i++) $this->cover[$i] = false;
+        }
+
+        public function CLIReport($configFile = false, $filter = null){
+            print_r("=============================\n");
+            print_r(" ConfigCoverage Report\n");
+            print_r("=============================\n");
+            print_r(" Cover : ".sizeof($this->getCover())."\n");
+            print_r(" Size  : ".$this->size."\n");
+            print_r("=============================\n");
+            print_r(" Ratio : ".$this->getCoverInPourcentage()."%\n");
+            print_r("=============================\n");
+            if($configFile == true){
+                foreach ($this->configFile as $k => $v){
+                    if(preg_match("#^".$filter."#", $v)) print_r("  ".($this->cover[$k] ? "✔" : " ")."  | ".$v);
+                }
+            }
+        }
+
+    }
