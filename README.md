@@ -1,5 +1,6 @@
 # Open Network Tools
 [![GitHub](https://img.shields.io/github/license/tchevalleraud/open-network-tools.svg?style=plastic)](https://github.com/tchevalleraud/open-network-tools/blob/master/LICENSE.md)
+[![GitHub](https://img.shields.io/badge/github-io-lightgrey.svg?style=plastic)](https://tchevalleraud.github.io/open-network-tools/)
 
 Services | Master
 --- | :---: 
@@ -11,6 +12,7 @@ Scrutinizer (code quality) | [![Scrutinizer branch](https://img.shields.io/scrut
 
 ## About this project
 ## Documentation
+  - [phpDocumentation](https://tchevalleraud.github.io/open-network-tools/docs/)
 ## How to use
 ### Example of use (OpenConfig)
 __Script in PHP :__
