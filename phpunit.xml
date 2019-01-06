@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="./vendor/autoload.php" colors="true">
+    <testsuites>
+        <testsuite name="OpenConfig">
+            <file>./tests/OpenConfigTests.php</file>
+            <file>./tests/OpenConfig_InterfacesTests.php</file>
+        </testsuite>
+        <testsuite name="Toolbox">
+            <file>./tests/Toolbox_ConfigCoverageTests.php</file>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory>toolbox/</directory>
+        </whitelist>
+    </filter>
+</phpunit>

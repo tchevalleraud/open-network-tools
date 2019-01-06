@@ -1,0 +1,7 @@
+# Environment garbage
+.idea
+scripts/
+
+# Project specific
+composer.lock
+vendor/

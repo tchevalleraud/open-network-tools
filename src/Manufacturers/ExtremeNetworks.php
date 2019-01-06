@@ -1,0 +1,11 @@
+<?php
+    namespace OpenNetworkTools\Manufacturers;
+        
+    class ExtremeNetworks extends \OpenNetworkTools\Manufacturers {
+    
+        public function __construct(){
+            parent::__construct();
+        }
+
+    }
+?>

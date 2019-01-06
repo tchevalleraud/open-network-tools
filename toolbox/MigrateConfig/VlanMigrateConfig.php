@@ -1,0 +1,9 @@
+<?php
+    namespace OpenNetworkTools\Toolbox\MigrateConfig;
+        
+    class VlanMigrateConfig {
+    
+        
+    
+    }
+?>

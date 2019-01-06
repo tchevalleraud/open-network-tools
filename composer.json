@@ -1,0 +1,26 @@
+{
+    "name": "tchevalleraud/open-network-tools",
+    "description": "This project provides a php library to manage a network equipment configuration but also to import or export this configuration from a particular network equipment manufacturer.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thibault CHEVALLERAUD",
+            "email": "tchevalleraud@interdata.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload":{
+        "psr-4": {
+            "OpenNetworkTools\\": "src/",
+            "OpenNetworkTools\\Toolbox\\": "toolbox/"
+        }
+    },
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4|^6.5",
+        "php-coveralls/php-coveralls": "^2.1"
+    }
+}

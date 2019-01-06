@@ -1,0 +1,31 @@
+<?php
+    namespace OpenNetworkTools\Manufacturers\ExtremeNetworks\Switching\ERS;
+        
+    class ERS5500 extends \OpenNetworkTools\Manufacturers\ExtremeNetworks\Switching\ERS {
+
+        public function __construct(){
+            parent::__construct();
+            $this->getOpenConfig()->addVlan(1);
+        }
+
+        public function analyseConfigFile(){
+            if(!empty($this->getConfigFile())){
+                foreach ($this->getConfigFile() as $k => $v){
+                    $this->analyseConfigVlan($k, $v);
+                }
+            }
+        }
+
+        private function analyseConfigVlan($key, $line){
+            if(preg_match("#^vlan create ([0-9,-]+) type port ([0-9]{0,2})#", $line, $match)){
+                $vlans = $this->explodeVlan($match[1]);
+                foreach ($vlans as $vlan) $this->getOpenConfig()->addVlan($vlan);
+                $this->getConfigCoverage()->addCover($key);
+            } elseif(preg_match("#^vlan name ([0-9]{1,4}) \"(.*)\"#", $line, $match)) {
+                $this->getOpenConfig()->getVlans($match[1])->setDescription($match[2]);
+                $this->getConfigCoverage()->addCover($key);
+            }
+        }
+    
+    }
+?>
