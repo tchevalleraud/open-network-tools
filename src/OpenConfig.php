@@ -16,6 +16,7 @@
          * @return \OpenNetworkTools\OpenConfig\Interfaces
          */
         public function addInterfaces($name){
+            if(is_null($name)) throw new \Exception();
             if(!is_object($this->interfaces[$name])) $this->interfaces[$name] = new \OpenNetworkTools\OpenConfig\Interfaces();
             return $this->interfaces[$name];
         }

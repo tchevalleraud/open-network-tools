@@ -4,6 +4,7 @@
         <testsuite name="OpenConfig">
             <file>./tests/OpenConfigTests.php</file>
             <file>./tests/OpenConfig_InterfacesTests.php</file>
+            <file>./tests/OpenConfig_VlansTests.php</file>
         </testsuite>
         <testsuite name="Toolbox">
             <file>./tests/Toolbox_ConfigCoverageTests.php</file>
