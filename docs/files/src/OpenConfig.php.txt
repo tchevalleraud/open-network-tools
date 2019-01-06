@@ -1,10 +1,32 @@
 <?php
     namespace OpenNetworkTools;
 
+    /**
+     * This class provides a single repository for configuring network devices.
+     *
+     * @author Thibault CHEVALLERAUD <tchevalleraud@interdata.fr>
+     * @copyright 2018-2019
+     * @license MIT
+     * @license https://github.com/tchevalleraud/open-network-tools/blob/master/LICENSE.md
+     */
     class OpenConfig {
 
+        /**
+         * @var mixed[] This variable contains all the interfaces of the equipment
+         * @see OpenConfig\Interfaces
+         */
         private $interfaces;
+
+        /**
+         * @var object This variable contains the system configuration
+         * @see OpenConfig\System
+         */
         private $system;
+
+        /**
+         * @var mixed[] This variable contains all vlans of the equipement
+         * @see OpenConfig\Vlans
+         */
         private $vlans;
 
         public function __construct(){
@@ -66,6 +88,8 @@
         /**
          * @param $name
          * @return \OpenNetworkTools\OpenConfig\Vlans
+         * @todo update specific value
+         * @todo update all vlans
          */
         public function setVlans($name){
             return $this->vlans[$name];
