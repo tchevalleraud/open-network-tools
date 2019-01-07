@@ -18,6 +18,10 @@
         private $interfaces;
 
         /**
+         */
+        private $routingInstance;
+
+        /**
          * @var object This variable contains the system configuration
          * @see OpenConfig\System
          */
@@ -35,7 +39,8 @@
 
         /**
          * @param $name
-         * @return \OpenNetworkTools\OpenConfig\Interfaces
+         * @return mixed
+         * @throws \Exception
          */
         public function addInterfaces($name){
             if(is_null($name)) throw new \Exception();
@@ -58,6 +63,22 @@
 
         public function setSystem(){
             return $this->system;
+        }
+
+        /**
+         * @param $name
+         * @return \OpenNetworkTools\OpenConfig\RoutingInstances
+         * @throws \Exception
+         */
+        public function addRoutingInstances($name){
+            if(is_null($name)) throw new \Exception();
+            if(!@is_object($this->routingInstance[$name])) $this->routingInstance[$name] = new \OpenNetworkTools\OpenConfig\RoutingInstances();
+            return $this->routingInstance[$name];
+        }
+
+        public function getRoutingInstances($name = null){
+            if(!is_null($name)) return $this->routingInstance[$name];
+            else return $this->routingInstance;
         }
 
         /**
