@@ -49,7 +49,7 @@ vlans:
 ### Exemple of configuration migration usage (ExtremeNetworks -> Juniper)
 __Configuration file :__
 ```bash
-vlan create 10-12,20,30-31
+vlan create 10-12,20,30-31 type port 1
 vlan name 1 "VLAN_1"
 vlan name 10 "SERVEUR_10"
 vlan name 11 "SERVEUR_11"
